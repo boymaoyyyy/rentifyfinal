@@ -2,11 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import Product from '@/app/models/Product';
 import { connectToDB } from '@/app/lib/mongoose';
 
-export async function DELETE(
-  req: NextRequest,
-  context: { params: { id: string } }
-) {
-  const { id } = context.params;
+// Delete a product by ID
+export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+  const { id } = params; // Extract the id from params
   await connectToDB();
 
   try {
@@ -18,9 +16,6 @@ export async function DELETE(
 
     return NextResponse.json({ message: 'Product deleted successfully' });
   } catch (error: unknown) {
-    return NextResponse.json(
-      { message: 'Error deleting product', error },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: 'Error deleting product', error }, { status: 500 });
   }
 }
