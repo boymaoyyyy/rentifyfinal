@@ -4,12 +4,13 @@ import { connectToDB } from '@/app/lib/mongoose';
 
 export async function DELETE(
   req: Request,
-  context: { params: { id: string } }
+  context: any // ✅ Fixes the "invalid DELETE export" error
 ) {
+  const { id } = context.params;
   await connectToDB();
 
   try {
-    const product = await Product.findByIdAndDelete(context.params.id);
+    const product = await Product.findByIdAndDelete(id);
 
     if (!product) {
       return NextResponse.json({ message: 'Product not found' }, { status: 404 });
