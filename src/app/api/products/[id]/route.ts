@@ -1,11 +1,15 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import Product from '@/app/models/Product';
 import { connectToDB } from '@/app/lib/mongoose';
 
-export async function DELETE(
-  req: Request,
-  context: any // ✅ Fixes the "invalid DELETE export" error
-) {
+// Define the context type explicitly
+interface DeleteContext {
+  params: {
+    id: string;
+  };
+}
+
+export async function DELETE(req: NextRequest, context: DeleteContext) {
   const { id } = context.params;
   await connectToDB();
 
