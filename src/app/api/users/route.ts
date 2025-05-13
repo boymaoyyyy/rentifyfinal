@@ -39,8 +39,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 }
 
-// Using underscore prefix to indicate intentionally unused parameter
-export async function GET(_request: NextRequest): Promise<NextResponse> {
+// Removed the request parameter entirely since it's not used
+export async function GET(): Promise<NextResponse> {
   return new NextResponse(null, {
     status: 405,
     headers: {
