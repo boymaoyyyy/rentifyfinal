@@ -3,11 +3,11 @@ import Product from '@/app/models/Product';
 import { connectToDB } from '@/app/lib/mongoose';
 
 // DELETE a product by ID
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, context: { params: { id: string } }) {
   await connectToDB();
 
   try {
-    const product = await Product.findByIdAndDelete(params.id); // Use params.id
+    const product = await Product.findByIdAndDelete(context.params.id); // Correctly access context.params.id
 
     if (!product) {
       return NextResponse.json({ message: 'Product not found' }, { status: 404 });
