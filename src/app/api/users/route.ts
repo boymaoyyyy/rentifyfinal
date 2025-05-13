@@ -1,33 +1,51 @@
-// pages/api/users.ts
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 import { connectToDB } from '@/app/lib/mongoose';
 import User from '@/app/models/User';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   await connectToDB();
 
-  if (req.method === 'POST') {
-    try {
-      const { name, email, password } = req.body;
+  try {
+    const body = await request.json();
+    const { name, email, password } = body;
 
-      if (!name || !email || !password) {
-        return res.status(400).json({ message: 'Missing fields' });
-      }
-
-      const existingUser = await User.findOne({ email });
-      if (existingUser) {
-        return res.status(400).json({ message: 'User already exists' });
-      }
-
-      const newUser = new User({ name, email, password }); // TODO: Hash password before production
-      await newUser.save();
-
-      res.status(201).json({ message: 'User created successfully', user: newUser });
-    } catch (err) {
-      res.status(500).json({ message: 'Server error', error: err });
+    if (!name || !email || !password) {
+      return NextResponse.json(
+        { message: 'Missing fields' }, 
+        { status: 400 }
+      );
     }
-  } else {
-    res.setHeader('Allow', ['POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return NextResponse.json(
+        { message: 'User already exists' }, 
+        { status: 400 }
+      );
+    }
+
+    const newUser = new User({ name, email, password }); // TODO: Hash password before production
+    await newUser.save();
+
+    return NextResponse.json(
+      { message: 'User created successfully', user: newUser }, 
+      { status: 201 }
+    );
+  } catch (err) {
+    return NextResponse.json(
+      { message: 'Server error', error: err }, 
+      { status: 500 }
+    );
   }
+}
+
+// If you want to handle other methods, add them as separate exports
+export async function GET(request: NextRequest): Promise<NextResponse> {
+  // Return 405 Method Not Allowed since you only want POST
+  return new NextResponse(null, {
+    status: 405,
+    headers: {
+      'Allow': 'POST'
+    }
+  });
 }
