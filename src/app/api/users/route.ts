@@ -39,9 +39,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 }
 
-// If you want to handle other methods, add them as separate exports
-export async function GET(request: NextRequest): Promise<NextResponse> {
-  // Return 405 Method Not Allowed since you only want POST
+// Using underscore prefix to indicate intentionally unused parameter
+export async function GET(_request: NextRequest): Promise<NextResponse> {
   return new NextResponse(null, {
     status: 405,
     headers: {
