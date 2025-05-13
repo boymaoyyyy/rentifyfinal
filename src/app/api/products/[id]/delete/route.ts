@@ -2,14 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import Product from '@/app/models/Product';
 import { connectToDB } from '@/app/lib/mongoose';
 
-// DELETE a product by ID
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-): Promise<NextResponse> {
-  const { id } = params;
+// Single DELETE handler with no dynamic parameters
+export async function DELETE(request: NextRequest) {
   await connectToDB();
-
+  
+  // Extract the ID from the URL path
+  const url = new URL(request.url);
+  const pathParts = url.pathname.split('/');
+  const id = pathParts[pathParts.length - 2]; // Get ID from the URL path
+  
   try {
     const product = await Product.findByIdAndDelete(id);
 
