@@ -24,10 +24,41 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div className="flex min-h-screen flex-col">
+          {/* Header */}
+          <header className="bg-gray-100 border-b border-gray-300 sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+              {/* Logo and Brand */}
+              <div className="flex items-center space-x-2">
+                <img src="/logo.png" alt="Rentify Logo" className="h-8 w-auto" />
+                <h1 className="text-xl text-gray-800 font-bold"></h1>
+              </div>
+
+              {/* Navigation */}
+              <nav className="space-x-4 hidden md:flex">
+                <a href="/" className="text-gray-800 hover:text-green-600">Home</a>
+                <a href="/upload" className="text-gray-800 hover:text-green-600">Upload</a>
+                <a href="/about" className="text-gray-800 hover:text-green-600">About Us</a>
+              </nav>
+
+              {/* Mobile Menu Icon */}
+              <button className="md:hidden text-xl text-gray-800">
+                <span>☰</span>
+              </button>
+            </div>
+          </header>
+
+          {/* Main Content */}
+          <main className="flex-grow bg-gray-50">
+            <div className="max-w-7xl mx-auto px-4 py-8">{children}</div>
+          </main>
+
+          {/* Footer */}
+          <footer className="bg-white border-t py-4 text-center text-sm font-black">
+            &copy; {new Date().getFullYear()} Rentify. All rights reserved.
+          </footer>
+        </div>
       </body>
     </html>
   );
