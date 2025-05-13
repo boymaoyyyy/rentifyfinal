@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Product from '@/app/models/Product';
 import { connectToDB } from '@/app/lib/mongoose';
-import type { NextApiRequest } from 'next';
 
-// Use the built-in RouteHandlerContext type for App Router routes
 export async function DELETE(
   req: NextRequest,
   context: { params: { id: string } }
