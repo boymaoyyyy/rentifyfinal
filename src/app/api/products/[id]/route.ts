@@ -1,15 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Product from '@/app/models/Product';
 import { connectToDB } from '@/app/lib/mongoose';
+import type { NextApiRequest } from 'next';
 
-// Define the context type explicitly
-interface DeleteContext {
-  params: {
-    id: string;
-  };
-}
-
-export async function DELETE(req: NextRequest, context: DeleteContext) {
+// Use the built-in RouteHandlerContext type for App Router routes
+export async function DELETE(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   const { id } = context.params;
   await connectToDB();
 
@@ -21,7 +19,10 @@ export async function DELETE(req: NextRequest, context: DeleteContext) {
     }
 
     return NextResponse.json({ message: 'Product deleted successfully' });
-  } catch (error) {
-    return NextResponse.json({ message: 'Error deleting product', error }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json(
+      { message: 'Error deleting product', error },
+      { status: 500 }
+    );
   }
 }
