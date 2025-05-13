@@ -24,7 +24,7 @@ export default function Home() {
         <div className="mt-12 text-center">
           <h2 className="text-3xl font-semibold mb-4">Looking to Lend Items?</h2>
           <p className="text-lg text-gray-200 mb-6">
-            Got items you don't use often? Upload them to Rentify and help others while earning extra income!
+            Got items you don&apos;t use often? Upload them to Rentify and help others while earning extra income!
           </p>
 
           <Link href="/upload">
@@ -43,7 +43,7 @@ export default function Home() {
             <div className="border p-6 rounded-lg shadow-md hover:shadow-xl transition-all">
               <h3 className="text-xl font-semibold mb-2">Easy Access</h3>
               <p className="text-lg text-gray-600">
-                Browse items to rent or list your own quickly and easily. It's as simple as a few clicks.
+                Browse items to rent or list your own quickly and easily. It&apos;s as simple as a few clicks.
               </p>
             </div>
             <div className="border p-6 rounded-lg shadow-md hover:shadow-xl transition-all">

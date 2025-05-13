@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "../components/ui/button";
 import MaxWidthWrapper from "../components/MaxWidthWrapper";
-import { Users, Recycle, Lock } from "lucide-react"; // Import Lucide icons
+import { Users, Recycle, Lock } from "lucide-react";
 
 export default function AboutUs() {
   return (
@@ -25,7 +25,7 @@ export default function AboutUs() {
           Rentify, founded by a group of students driven by a shared vision of innovation and collaboration, aims to revolutionize resource accessibility. Our seamless digital marketplace facilitates the lending and renting of items, fostering a community of sharing and connection through advanced technology. Built on the principles of trust, convenience, and efficiency, Rentify streamlines the process for both lenders and renters, minimizing costs and ensuring a seamless experience.
         </p>
         <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-          Whether it's household essentials, tools, gadgets, or recreational equipment, users gain access to necessary items without the burden of ownership. Our student-founded team brings a fresh perspective and an innate understanding of modern digital interactions. We strive to cultivate a dynamic and sustainable community that embraces the power of sharing. At its core, Rentify is more than just a service; it's a movement towards a smarter, more connected approach to resource utilization.
+          Whether it&apos;s household essentials, tools, gadgets, or recreational equipment, users gain access to necessary items without the burden of ownership. Our student-founded team brings a fresh perspective and an innate understanding of modern digital interactions. We strive to cultivate a dynamic and sustainable community that embraces the power of sharing. At its core, Rentify is more than just a service; it&apos;s a movement towards a smarter, more connected approach to resource utilization.
         </p>
       </section>
 
@@ -47,7 +47,7 @@ export default function AboutUs() {
           <div className="text-center">
             <h3 className="text-2xl font-semibold text-green-600 mb-4">Mission</h3>
             <p className="text-lg text-gray-700">
-              Rentify's mission is to empower people and communities by giving a safe and secure marketplace for renting and lending everyday items. Rentify aims to maximize value, reduce waste, and make essential goods more accessible through our platform.
+              Rentify&apos;s mission is to empower people and communities by giving a safe and secure marketplace for renting and lending everyday items. Rentify aims to maximize value, reduce waste, and make essential goods more accessible through our platform.
             </p>
           </div>
         </div>
@@ -56,10 +56,10 @@ export default function AboutUs() {
       {/* Our Values Section */}
       <section className="mt-16 mb-16 px-4 bg-green-600 rounded-lg">
         <h2 className="text-4xl font-semibold text-white mb-6 text-center">Our Values</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 justify-center items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
           <div className="text-center">
-            <div className="bg-white text-green-600 rounded-full p-6 mb-4 shadow-lg flex justify-center items-center">
-              <Users size={40} /> {/* Lucide Users icon with smaller size */}
+            <div className="bg-white text-green-600 rounded-full p-4 mb-4 shadow-lg flex justify-center items-center mx-auto w-16 h-16">
+              <Users size={28} />
             </div>
             <h3 className="text-xl font-semibold mb-4 text-white">Community</h3>
             <p className="text-lg text-gray-200">
@@ -67,8 +67,8 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="text-center">
-            <div className="bg-white text-green-600 rounded-full p-6 mb-4 shadow-lg flex justify-center items-center">
-              <Recycle size={40} /> {/* Lucide Recycle icon with smaller size */}
+            <div className="bg-white text-green-600 rounded-full p-4 mb-4 shadow-lg flex justify-center items-center mx-auto w-16 h-16">
+              <Recycle size={28} />
             </div>
             <h3 className="text-xl font-semibold mb-4 text-white">Sustainability</h3>
             <p className="text-lg text-gray-200">
@@ -76,8 +76,8 @@ export default function AboutUs() {
             </p>
           </div>
           <div className="text-center">
-            <div className="bg-white text-green-600 rounded-full p-6 mb-4 shadow-lg flex justify-center items-center">
-              <Lock size={40} /> {/* Lucide Lock icon with smaller size */}
+            <div className="bg-white text-green-600 rounded-full p-4 mb-4 shadow-lg flex justify-center items-center mx-auto w-16 h-16">
+              <Lock size={28} />
             </div>
             <h3 className="text-xl font-semibold mb-4 text-white">Security</h3>
             <p className="text-lg text-gray-200">
