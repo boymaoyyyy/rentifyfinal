@@ -2,19 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import Product from '@/app/models/Product';
 import { connectToDB } from '@/app/lib/mongoose';
 
-// Define the correct context parameter type for dynamic routes
-type RouteContext = {
-  params: {
-    id: string;
-  };
-};
-
 // DELETE a product by ID
 export async function DELETE(
   request: NextRequest,
-  context: RouteContext
+  { params }: { params: { id: string } }
 ) {
-  const { id } = context.params;
+  const { id } = params;
   await connectToDB();
 
   try {
