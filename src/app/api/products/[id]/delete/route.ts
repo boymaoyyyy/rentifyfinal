@@ -6,7 +6,7 @@ import { connectToDB } from '@/app/lib/mongoose';
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
-) {
+): Promise<NextResponse> {
   const { id } = params;
   await connectToDB();
 
