@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import Image from "next/image";
 
 export default function UploadPage() {
   const [form, setForm] = useState({
@@ -158,10 +159,12 @@ export default function UploadPage() {
           {/* Image Preview */}
           {imagePreview && (
             <div className="mt-2">
-              <img 
+              <Image 
                 src={imagePreview} 
                 alt="Preview" 
                 className="w-full max-h-64 object-contain border rounded"
+                width={400}
+                height={256}
               />
             </div>
           )}

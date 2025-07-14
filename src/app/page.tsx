@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "./components/ui/button";
 import MaxWidthWrapper from "./components/MaxWidthWrapper";
 import ProductList from "./components/Productlists";
@@ -39,7 +38,7 @@ export default function Home() {
       <section className="py-12">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold mb-4">Featured Products</h2>
-          <p className="text-xl text-gray-600">Discover what's available in your community</p>
+          <p className="text-xl text-gray-600">Discover what&apos;s available in your community</p>
         </div>
         
         <ProductList />

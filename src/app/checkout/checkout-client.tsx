@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 // Fix the Button import path - adjust this to match your project structure
 import { Button } from '@/app/components/ui/button';
+import Image from "next/image";
 
 export default function CheckoutClient() {
   const searchParams = useSearchParams();
@@ -64,7 +65,7 @@ export default function CheckoutClient() {
         </div>
       ) : (
         <>
-          <img src={imageUrl || "/placeholder.svg"} alt={name} className="w-full h-64 object-cover mb-4 rounded" />
+          <Image src={imageUrl || "/placeholder.svg"} alt={name} className="w-full h-64 object-cover mb-4 rounded" width={400} height={256} />
           <h1 className="text-2xl font-bold mb-2">{name}</h1>
           <p className="text-gray-700 mb-4">{description}</p>
           <p className="text-lg font-semibold mb-6">P{price}</p>

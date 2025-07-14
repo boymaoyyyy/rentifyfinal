@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/button';
+import Image from "next/image";
 
 interface OrderDetails {
   id: string;
@@ -46,10 +47,12 @@ export default function OrderDetails({ orderId }: { orderId: string }) {
     <div className="bg-white rounded-lg shadow-md p-6">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-1/3">
-          <img 
+          <Image 
             src={order.imageUrl || "/placeholder.svg"} 
             alt={order.productName} 
             className="w-full h-48 object-cover rounded-md"
+            width={400}
+            height={192}
           />
         </div>
         

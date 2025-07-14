@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from "next/image";
 
 interface Product {
   _id: string;
@@ -40,10 +41,12 @@ const ProductList = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {products.map((product) => (
         <div key={product._id} className="border rounded-lg shadow-sm p-4">
-          <img
+          <Image
             src={product.imageUrl}
             alt={product.name}
             className="w-full h-64 object-cover mb-4"
+            width={400}
+            height={256}
           />
           <h3 className="text-lg font-semibold">{product.name}</h3>
           <p className="text-sm text-gray-500">{product.description}</p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";  // Import Link from next/link
+import Image from "next/image";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +33,7 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
               {/* Logo and Brand */}
               <div className="flex items-center space-x-2">
-                <img src="/logo.png" alt="Rentify Logo" className="h-8 w-auto" />
+                <Image src="/logo.png" alt="Rentify Logo" className="h-8 w-auto" width={32} height={32} />
                 <h1 className="text-xl text-gray-800 font-bold"></h1>
               </div>
 
